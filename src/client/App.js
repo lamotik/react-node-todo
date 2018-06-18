@@ -1,5 +1,7 @@
+import SnackbarContent from '@material-ui/core/SnackbarContent';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import React, { Component } from 'react';
-import './app.css';
 
 export default class App extends Component {
   constructor(props) {
@@ -14,13 +16,16 @@ export default class App extends Component {
   }
 
   render() {
+    const greeting = `Logged in user :  ${this.state.username}`;
     return (
       <div>
         {this.state.username ? (
-          <h1>Hello {this.state.username}</h1>
-        ) : (
-          <h1>Loading.. please wait!</h1>
-        )}
+          <h1>
+            <SnackbarContent message={`${greeting}`} />
+          </h1>
+                ) : (
+                  <CircularProgress />
+                )}
       </div>
     );
   }

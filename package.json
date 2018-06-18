@@ -1,18 +1,19 @@
 {
-  "name": "simple-react-full-stack",
+  "name": "MineVergemaal",
   "version": "1.0.0",
-  "description": "Boilerplate to build a full stack web application using React, Node.js, Express and Webpack.",
   "main": "src/server/index.js",
   "scripts": {
+    "deploy": "gcloud app deploy",
     "start": "node src/server/index.js",
-    "build": "webpack --mode production",
+    "bundle": "webpack --mode production",
+    "prestart": "npm run bundle",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently --kill-others \"npm run server\" \"npm run client\""
   },
-  "author": "Sandeep Raveesh",
-  "license": "ISC",
+  "author": "Petro Krasnomovets",
   "dependencies": {
+    "@material-ui/core": "^1.2.1",
     "cookie-parser": "^1.4.3",
     "debug": "^3.1.0",
     "express": "^4.16.3",
