@@ -9,7 +9,8 @@
     "prestart": "npm run bundle",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently --kill-others \"npm run server\" \"npm run client\""
+    "dev": "concurrently --kill-others \"npm run server\" \"npm run client\"",
+    "debug-server": "node %NODE_DEBUG_OPTION% src/server/index.js"
   },
   "author": "Petro Krasnomovets",
   "dependencies": {
@@ -19,7 +20,8 @@
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "soap": "^0.24.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
