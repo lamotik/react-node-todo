@@ -17,6 +17,7 @@
     "express": "^4.16.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-router-dom": "^4.3.1",
     "react-virtualized": "^9.19.1",
     "soap": "^0.24.0"
   },

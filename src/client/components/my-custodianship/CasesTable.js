@@ -1,5 +1,6 @@
 // import PropTypes from 'prop-types';
 // import { withStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -11,20 +12,21 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import 'react-virtualized/styles.css';
 import React, { Component } from 'react';
 
-export default class CasesTable extends Component {
+class CasesTable extends Component {
   constructor(props) {
     super(props);
     this.state = { cases: [] };
   }
 
   componentDidMount() {
-    fetch('/api/custodianCases')
+    fetch(`/api/custodianCases/${this.props.fnr}`)
       .then(res => res.json())
-      .then((data) => {
-        console.log(data.cases);
-        return data;
-      })
       .then(data => this.setState({ cases: data.cases }));
+  }
+
+  handleClick(event, id) {
+    console.log(`Going to /${this.props.fnr}/${id}`);
+    this.props.history.push(`/${this.props.fnr}/${id}`);
   }
 
   render() {
@@ -45,7 +47,7 @@ export default class CasesTable extends Component {
               </TableHead>
               <TableBody>
                 {this.state.cases.map(n => (
-                  <TableRow key={n.saksId}>
+                  <TableRow key={n.saksId} onClick={event => this.handleClick(event, n.saksId)}>
                     <TableCell component="th" scope="row" numeric>{n.saksId}</TableCell>
                     <TableCell>{n.fornavn}</TableCell>
                     <TableCell>{n.mellomnavn}</TableCell>
@@ -64,3 +66,6 @@ export default class CasesTable extends Component {
     );
   }
 }
+
+
+export default withRouter(CasesTable);
