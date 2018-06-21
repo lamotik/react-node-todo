@@ -7,14 +7,12 @@ class App extends Component {
   render() {
     return (
       <Switch>
-        <div>
-          <Route path="/cases">
-            <CasesTable fnr="01015947159" />
-          </Route>
           <Route path="/:fnr/:caseId">
             <Case />
           </Route>
-        </div>
+          <Route>
+              <CasesTable fnr="01015947159" />
+          </Route>
       </Switch>
     );
   }
