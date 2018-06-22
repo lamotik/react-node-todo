@@ -16,6 +16,7 @@ class CasesTable extends Component {
   constructor(props) {
     super(props);
     this.state = { cases: [] };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {

@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import CasesTable from './my-custodianship/CasesTable';
-import Case from './my-custodianship/Case';
+
+import Grid from '@material-ui/core/Grid';
+
+import Header from './layout/top/Header';
+import News from './layout/left/News';
+import Todo from './layout/right/Todo';
+
 
 class App extends Component {
   render() {
     return (
-      <Switch>
-          <Route path="/:fnr/:caseId">
-            <Case />
-          </Route>
-          <Route>
-              <CasesTable fnr="01015947159" />
-          </Route>
-      </Switch>
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={2}>
+          <News />
+        </Grid>
+        <Grid item xs={12} sm={8}>
+          <Header />
+        </Grid>
+        <Grid item xs={12} sm={2}>
+          <Todo />
+        </Grid>
+      </Grid>
     );
   }
 }
