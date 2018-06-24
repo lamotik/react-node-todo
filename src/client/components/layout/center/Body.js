@@ -17,7 +17,9 @@ class Body extends Component {
               <Case />
             </Route>
             <Route>
-              <CasesTable fnr="04014136415" />
+              <CasesTable fnr="01015947159" />
+              {/* 01015947159 - few
+              04014136415 - many */}
             </Route>
           </Switch>
         );

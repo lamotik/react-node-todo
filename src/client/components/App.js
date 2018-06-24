@@ -3,7 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 
-import Header from './layout/top/Header';
+import Header from './layout/center/Header';
 import News from './layout/left/News';
 import Todo from './layout/right/Todo';
 
@@ -27,9 +27,3 @@ class App extends Component {
 }
 
 export default withRouter(App);
-
-/*
-<Switch>
-
-</Switch>
- */

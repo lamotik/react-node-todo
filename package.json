@@ -14,11 +14,12 @@
   },
   "dependencies": {
     "@material-ui/core": "^1.2.1",
-    "express": "^4.16.3",
+    "@material-ui/icons": "^1.1.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router-dom": "^4.3.1",
-    "react-virtualized": "^9.19.1",
+    "lodash": "^4.17.10",
+    "express": "^4.16.3",
     "soap": "^0.24.0"
   },
   "devDependencies": {

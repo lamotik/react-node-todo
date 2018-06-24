@@ -3,7 +3,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import React from 'react';
-import Body from '../body/Body';
+import Body from './Body';
 
 class Header extends React.Component {
   constructor(props) {
@@ -32,15 +32,8 @@ class Header extends React.Component {
             </Tabs>
           </Toolbar>
         </AppBar>
-        {/* <AppBar position="static"> */}
 
-        {/* </AppBar> */}
         <Body tabId={value} />
-        {/* {value === 0 && <Body />}
-        {value === 1 && 'Item Two'}
-        {value === 2 && 'Item Three'}
-        {value === 3 && 'Item Four'}
-        {value === 4 && 'Item Five'} */}
       </div>
     );
   }
