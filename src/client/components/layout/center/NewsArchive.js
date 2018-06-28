@@ -1,8 +1,8 @@
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import React, { Component } from 'react';
+import React from 'react';
 
-class NewsArchive extends Component {
+class NewsArchive extends React.Component {
   render() {
     return (
       <div>

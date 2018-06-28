@@ -1,5 +1,5 @@
-import { Switch, Route, withRouter } from 'react-router-dom';
-import React, { Component } from 'react';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import React from 'react';
 import CasesTable from './CasesTable';
 import Case from './Case';
 import MyProfile from './MyProfile';
@@ -7,9 +7,9 @@ import Documents from './Documents';
 import NewsArchive from './NewsArchive';
 import TasksArchive from './TasksArchive';
 
-class Body extends Component {
+class Body extends React.Component {
   render() {
-    switch (this.props.tabId) {
+    switch (this.props.tabIndex) {
       case 0:
         return (
           <Switch>

@@ -10,9 +10,9 @@ import { orderBy } from 'lodash';
 import Paper from '@material-ui/core/Paper';
 
 import CircularProgress from '@material-ui/core/CircularProgress';
-import React, { Component } from 'react';
+import React from 'react';
 
-class CasesTable extends Component {
+class CasesTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,7 +69,6 @@ class CasesTable extends Component {
   }
 
   handleClick(event, id) {
-    // console.log(`Going to /${this.props.fnr}/${id}`);
     this.props.history.push(`/${this.props.fnr}/${id}`);
   }
 
@@ -89,35 +88,38 @@ class CasesTable extends Component {
 
   render() {
     return (
-      <div>
-        <Paper style={{ overflowX: 'auto' }}>
-          {this.state.cases ? (
-            <Table>
-              <TableHead>
-                <TableRow>
-                  {this.state.columnData.map(column => (
-                    <TableCell
-                      key={column.id}
-                      numeric={column.numeric}
-                      sortDirection={this.state.orderBy === column.id ? this.state.order : 'asc'}
+      <Paper style={{ overflowX: 'auto' }}>
+        {this.state.cases ? (
+          <Table>
+            <TableHead >
+              <TableRow>
+                {this.state.columnData.map(column => (
+                  <TableCell
+                    key={column.id}
+                    numeric={column.numeric}
+                    sortDirection={this.state.orderBy === column.id ? this.state.order : 'asc'}
+                  >
+                    <TableSortLabel
+                      active={this.state.orderBy === column.id}
+                      direction={this.state.order}
+                      onClick={event => this.handleRequestSort(event, column.id)}
                     >
-                      <TableSortLabel
-                        active={this.state.orderBy === column.id}
-                        direction={this.state.order}
-                        onClick={event => this.handleRequestSort(event, column.id)}
-                      >
-                        {column.label}
-                      </TableSortLabel>
-                    </TableCell>
+                      {column.label}
+                    </TableSortLabel>
+                  </TableCell>
                   ), this)}
-                </TableRow>
-              </TableHead>
+              </TableRow>
+            </TableHead>
 
-              <TableBody>
-                {console.log(`Sorting: order: ${this.state.order}, orderBy: ${this.state.orderBy}`)}
-                {orderBy(this.state.cases, this.state.orderBy, this.state.order)
+            <TableBody>
+              {console.log(`Sorting: order: ${this.state.order}, orderBy: ${this.state.orderBy}`)}
+              {orderBy(this.state.cases, this.state.orderBy, this.state.order)
                   .map(n => (
-                    <TableRow key={n.saksId} onClick={event => this.handleClick(event, n.saksId)}>
+                    <TableRow
+                      key={n.saksId}
+                      onClick={event => this.handleClick(event, n.saksId)}
+                      hover
+                    >
                       <TableCell component="th" scope="row" numeric>{n.saksId}</TableCell>
                       <TableCell>{n.fornavn}</TableCell>
                       <TableCell>{n.mellomnavn}</TableCell>
@@ -126,13 +128,12 @@ class CasesTable extends Component {
                       <TableCell>{n.dufNr}</TableCell>
                     </TableRow>
                   ))}
-              </TableBody>
-            </Table>
+            </TableBody>
+          </Table>
           ) : (
             <CircularProgress />
           )}
-        </Paper>
-      </div>
+      </Paper>
     );
   }
 }
