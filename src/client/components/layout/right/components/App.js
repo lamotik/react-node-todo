@@ -3,13 +3,11 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { withStyles } from '@material-ui/core/styles';
 import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Footer from './Footer';
 import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
-
-import withRoot from './withRoot';
 
 const styles = {
   root: {
@@ -41,4 +39,4 @@ App.propTypes = {
   classes: PropTypes.shape.isRequired
 };
 
-export default withRoot(withStyles(styles)(App));
+export default withStyles(styles)(App);
